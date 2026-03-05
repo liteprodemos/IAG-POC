@@ -95,7 +95,7 @@ function App() {
             <iframe
               src="https://racv--cbqa.sandbox.my.site.com/s/testpoccustsearch"
               width="100%"
-              height="600px"
+              height="500px"
               style={{ border: "none" }}
               title="Salesforce Iframe"
             />
