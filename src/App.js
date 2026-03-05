@@ -69,7 +69,7 @@ function App() {
         </Toolbar>
       </AppBar>
 
-      <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+      <Container maxWidth={false} sx={{ mt: 4, mb: 4 }}>
 
         {/* Iframe Section */}
         <Paper
