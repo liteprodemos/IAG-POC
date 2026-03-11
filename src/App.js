@@ -31,7 +31,7 @@ function App() {
 
   useEffect(() => {
     const handleMessage = (event) => {
-      if (event.origin !== "https://racv--cbqa.sandbox.my.site.com") {
+      if (event.origin !== "https://racv--cbdevpro.sandbox.my.site.com") {
         return;
       }
 
@@ -69,7 +69,7 @@ function App() {
         </Toolbar>
       </AppBar>
 
-      <Container maxWidth={false} sx={{ mt: 4, mb: 4 }}>
+      <Container maxWidth='md' sx={{ mt: 4, mb: 4 }}>
 
         {/* Iframe Section */}
         <Paper
@@ -92,8 +92,15 @@ function App() {
               overflow: "hidden",
             }}
           >
-            <iframe
+            {/* <iframe
               src="https://racv--cbqa.sandbox.my.site.com/s/testpoccustsearch"
+              width="100%"
+              height="500px"
+              style={{ border: "none" }}
+              title="Salesforce Iframe"
+            /> */}
+            <iframe
+              src="https://racv--cbdevpro.sandbox.my.site.com/s/pocexternalcustomermanager"
               width="100%"
               height="500px"
               style={{ border: "none" }}
