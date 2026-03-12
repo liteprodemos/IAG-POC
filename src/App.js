@@ -100,7 +100,7 @@ function App() {
               title="Salesforce Iframe"
             /> */}
             <iframe
-              src="https://racv--cbdevpro.sandbox.my.site.com/s/pocexternalcustomermanager"
+              src="https://racv--cbdevpro.sandbox.my.site.com/iagpoc/s/"
               width="100%"
               height="500px"
               style={{ border: "none" }}
