@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/IAG-POC/static/css/main.e6c13ad2.css",
-    "main.js": "/IAG-POC/static/js/main.bae69c5b.js",
+    "main.js": "/IAG-POC/static/js/main.d022b147.js",
     "static/js/453.63ea8af3.chunk.js": "/IAG-POC/static/js/453.63ea8af3.chunk.js",
     "index.html": "/IAG-POC/index.html",
     "main.e6c13ad2.css.map": "/IAG-POC/static/css/main.e6c13ad2.css.map",
-    "main.bae69c5b.js.map": "/IAG-POC/static/js/main.bae69c5b.js.map",
+    "main.d022b147.js.map": "/IAG-POC/static/js/main.d022b147.js.map",
     "453.63ea8af3.chunk.js.map": "/IAG-POC/static/js/453.63ea8af3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.bae69c5b.js"
+    "static/js/main.d022b147.js"
   ]
 }
