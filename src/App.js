@@ -31,9 +31,10 @@ function App() {
 
   useEffect(() => {
     const handleMessage = (event) => {
-      if (event.origin !== "https://racv--cbdevpro.sandbox.my.site.com") {
-        return;
-      }
+      // if (event.origin !== "https://racv--cbdevpro.sandbox.my.site.com" || event.origin !== "sandbox.vf.force.com") {
+      //   return;
+      // }
+      if (!event.origin.includes("sandbox.vf.force.com")) return;
 
       console.log("Raw data received:", event.data);
 
