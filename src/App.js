@@ -70,9 +70,9 @@ function App() {
         </Toolbar>
       </AppBar>
 
-      <Container maxWidth='md' sx={{ mt: 4, mb: 4 }}>
+      {/* Changed maxWidth to 'lg' to fit two iframes side-by-side better */}
+      <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
 
-        {/* Iframe Section */}
         <Paper
           elevation={4}
           sx={{
@@ -82,46 +82,59 @@ function App() {
             backgroundColor: "#ffffff",
           }}
         >
-          <Typography variant="h6" gutterBottom>
-            Salesforce Customer Search
+          <Typography variant="h6" gutterBottom align="center">
+            {sfData ? "Customer Found - Proceed to Payment" : "Search for a Customer"}
           </Typography>
 
-          <Box
-            sx={{
-              border: "2px solid #1976d2",
-              borderRadius: 2,
-              overflow: "hidden",
-            }}
-          >
-            {/* <iframe
-              src="https://racv--cbqa.sandbox.my.site.com/s/testpoccustsearch"
-              width="100%"
-              height="500px"
-              style={{ border: "none" }}
-              title="Salesforce Iframe"
-            /> */}
-            {/* <iframe
-              src="https://racv--cbdevpro.sandbox.my.site.com/iagpoc/s/"
-              width="100%"
-              height="500px"
-              style={{ border: "none" }}
-              title="Salesforce Iframe"
-            /> */}
-            {/* <iframe
-              src="https://racv--cbdevpro--c.sandbox.vf.force.com/apex/AccountSearchVF"
-              width="100%"
-              height="500px"
-              style={{ border: "none" }}
-              title="Salesforce Iframe"
-            /> */}
-            <iframe
-              src="https://racv--cbqa--c.sandbox.vf.force.com/apex/ExternalCustomerManagerVF"
-              width="100%"
-              height="500px"
-              style={{ border: "none" }}
-              title="Salesforce Iframe"
-            />
-          </Box>
+          {/* Grid Container for Side-by-Side Iframes */}
+          <Grid container spacing={2}>
+            
+            {/* Left Side: Search Iframe */}
+            <Grid item xs={12} md={sfData ? 6 : 12} sx={{ transition: 'all 0.3s ease' }}>
+              <Typography variant="subtitle2" color="textSecondary" sx={{ mb: 1 }}>
+                Search Manager
+              </Typography>
+              <Box
+                sx={{
+                  border: "2px solid #1976d2",
+                  borderRadius: 2,
+                  overflow: "hidden",
+                }}
+              >
+                <iframe
+                  src="https://racv--cbqa--c.sandbox.vf.force.com/apex/ExternalCustomerManagerVF"
+                  width="100%"
+                  height="550px"
+                  style={{ border: "none" }}
+                  title="Search Iframe"
+                />
+              </Box>
+            </Grid>
+
+            {/* Right Side: Payment Iframe (Only shows if sfData is present) */}
+            {sfData && (
+              <Grid item xs={12} md={6}>
+                 <Typography variant="subtitle2" color="textSecondary" sx={{ mb: 1 }}>
+                  Payment Setup for {sfData.Name}
+                </Typography>
+                <Box
+                  sx={{
+                    border: "2px solid #2e7d32", // Green border for the action frame
+                    borderRadius: 2,
+                    overflow: "hidden",
+                  }}
+                >
+                  <iframe
+                    src={`https://racv--cbqa--c.sandbox.vf.force.com/apex/ExternalCustomerPaymentVF?id=${sfData.Id}`}
+                    width="100%"
+                    height="550px"
+                    style={{ border: "none" }}
+                    title="Payment Iframe"
+                  />
+                </Box>
+              </Grid>
+            )}
+          </Grid>
         </Paper>
 
         {/* Data Display Section */}
