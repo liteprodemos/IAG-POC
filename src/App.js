@@ -71,7 +71,7 @@ function App() {
       </AppBar>
 
       {/* Changed maxWidth to 'lg' to fit two iframes side-by-side better */}
-      <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+      <Container maxWidth="md" sx={{ mt: 4,  pb: 4 }}>
 
         <Paper
           elevation={4}
@@ -86,13 +86,13 @@ function App() {
             {sfData ? "Customer Found - Proceed to Payment" : "Search for a Customer"}
           </Typography>
 
-          {/* Grid Container for Side-by-Side Iframes */}
-          <Grid container spacing={2}>
+          {/* Grid Container for Vertical Stack */}
+          <Grid container spacing={3}>
             
-            {/* Left Side: Search Iframe */}
-            <Grid item xs={12} md={sfData ? 6 : 12} sx={{ transition: 'all 0.3s ease' }}>
+            {/* Top Section: Search Iframe */}
+            <Grid item xs={12}>
               <Typography variant="subtitle2" color="textSecondary" sx={{ mb: 1 }}>
-                Search Manager
+                Search Customer
               </Typography>
               <Box
                 sx={{
@@ -104,16 +104,16 @@ function App() {
                 <iframe
                   src="https://racv--cbqa--c.sandbox.vf.force.com/apex/ExternalCustomerManagerVF"
                   width="100%"
-                  height="550px"
+                  height="500px"
                   style={{ border: "none" }}
                   title="Search Iframe"
                 />
               </Box>
             </Grid>
 
-            {/* Right Side: Payment Iframe (Only shows if sfData is present) */}
+            {/* Bottom Section: Payment Iframe (Only shows if sfData is present) */}
             {sfData && (
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12}>
                  <Typography variant="subtitle2" color="textSecondary" sx={{ mb: 1 }}>
                   Payment Setup for {sfData.Name}
                 </Typography>
