@@ -71,7 +71,7 @@ function App() {
       </AppBar>
 
       {/* Changed maxWidth to 'lg' to fit two iframes side-by-side better */}
-      <Container maxWidth="md" sx={{ mt: 4,  pb: 4 }}>
+      <Container maxWidth="lg" sx={{ mt: 4,  pb: 4 }}>
 
         <Paper
           elevation={4}
