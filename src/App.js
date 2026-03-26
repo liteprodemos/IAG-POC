@@ -1,4 +1,3 @@
-// npm run deploy
 import React, { useEffect, useState } from "react";
 import {
   AppBar,
@@ -15,25 +14,8 @@ import {
 function App() {
   const [sfData, setSfData] = useState(null);
 
-  // useEffect(() => {
-  //   const handleMessage = (event) => {
-  //     if (event.origin !== "https://racv--cbqa.sandbox.my.site.com") {
-  //       return;
-  //     }
-
-  //     console.log("Data received from Salesforce:", event.data);
-  //     setSfData(event.data);
-  //   };
-
-  //   window.addEventListener("message", handleMessage);
-  //   return () => window.removeEventListener("message", handleMessage);
-  // }, []);
-
   useEffect(() => {
     const handleMessage = (event) => {
-      // if (event.origin !== "https://racv--cbdevpro.sandbox.my.site.com" || event.origin !== "sandbox.vf.force.com") {
-      //   return;
-      // }
       if (!event.origin.includes("sandbox.vf.force.com")) return;
 
       console.log("Raw data received:", event.data);
@@ -41,7 +23,6 @@ function App() {
       let parsedData;
 
       try {
-        // If it's a string, parse it
         parsedData =
           typeof event.data === "string"
             ? JSON.parse(event.data)
@@ -70,7 +51,6 @@ function App() {
         </Toolbar>
       </AppBar>
 
-      {/* Changed maxWidth to 'lg' to fit two iframes side-by-side better */}
       <Container maxWidth="lg" sx={{ mt: 4,  pb: 4 }}>
 
         <Paper
@@ -119,7 +99,7 @@ function App() {
                 </Typography>
                 <Box
                   sx={{
-                    border: "2px solid #2e7d32", // Green border for the action frame
+                    border: "2px solid #2e7d32",
                     borderRadius: 2,
                     overflow: "hidden",
                   }}
