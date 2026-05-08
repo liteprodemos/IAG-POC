@@ -198,7 +198,7 @@ function App() {
                 }}
               >
                 <iframe
-                  src={`https://racv--cbqa--c.sandbox.vf.force.com/apex/ExternalKnowledgeArticle?title=${encodeURIComponent(selectedOption)}`}
+                  src={`https://racv--cbqa--c.sandbox.vf.force.com/apex/ExternalKnowledgeArticleVF?title=${encodeURIComponent(selectedOption)}`}
                   width="100%"
                   height="400px"
                   style={{ border: "none" }}
