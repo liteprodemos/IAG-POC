@@ -9,10 +9,15 @@ import {
   CardContent,
   Paper,
   Grid,
+  ToggleButton,
+  ToggleButtonGroup,
 } from "@mui/material";
 
 function App() {
   const [sfData, setSfData] = useState(null);
+  
+  // State for the new options section
+  const [selectedOption, setSelectedOption] = useState("Option 1");
 
   useEffect(() => {
     const handleMessage = (event) => {
@@ -38,6 +43,13 @@ function App() {
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
   }, []);
+
+  // Handler for the horizontal options
+  const handleOptionChange = (event, newOption) => {
+    if (newOption !== null) {
+      setSelectedOption(newOption);
+    }
+  };
 
   return (
     <Box sx={{ backgroundColor: "#f4f6f8", minHeight: "100vh" }}>
@@ -118,7 +130,7 @@ function App() {
         </Paper>
 
         {/* Data Display Section */}
-        <Card elevation={3} sx={{ borderRadius: 3 }}>
+        <Card elevation={3} sx={{ borderRadius: 3, mb: 4 }}>
           <CardContent>
             <Typography variant="h6" gutterBottom>
               Data Received From Salesforce
@@ -146,6 +158,56 @@ function App() {
             )}
           </CardContent>
         </Card>
+
+        {/* New Knowledge Article Section */}
+        <Paper
+          elevation={4}
+          sx={{
+            padding: 3,
+            borderRadius: 3,
+            backgroundColor: "#ffffff",
+          }}
+        >
+          <Typography variant="h6" gutterBottom align="center">
+            Knowledge Articles
+          </Typography>
+
+          <Grid container spacing={3}>
+            {/* 1. Top item: Horizontal selections */}
+            <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
+              <ToggleButtonGroup
+                color="primary"
+                value={selectedOption}
+                exclusive
+                onChange={handleOptionChange}
+                aria-label="Knowledge Article Options"
+              >
+                <ToggleButton value="Option 1">Option 1</ToggleButton>
+                <ToggleButton value="Option 2">Option 2</ToggleButton>
+                <ToggleButton value="Option 3">Option 3</ToggleButton>
+              </ToggleButtonGroup>
+            </Grid>
+
+            {/* 2. Bottom item: Dynamic Iframe */}
+            <Grid item xs={12}>
+              <Box
+                sx={{
+                  border: "2px solid #9c27b0", // Purple border to distinguish this section
+                  borderRadius: 2,
+                  overflow: "hidden",
+                }}
+              >
+                <iframe
+                  src={`https://racv--cbqa--c.sandbox.vf.force.com/apex/ExternalKnowledgeArticle?title=${encodeURIComponent(selectedOption)}`}
+                  width="100%"
+                  height="400px"
+                  style={{ border: "none" }}
+                  title="Knowledge Article Iframe"
+                />
+              </Box>
+            </Grid>
+          </Grid>
+        </Paper>
 
       </Container>
       
