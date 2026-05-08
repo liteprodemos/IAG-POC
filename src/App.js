@@ -182,9 +182,10 @@ function App() {
                 onChange={handleOptionChange}
                 aria-label="Knowledge Article Options"
               >
-                <ToggleButton value="Option 1">Option 1</ToggleButton>
-                <ToggleButton value="Option 2">Option 2</ToggleButton>
-                <ToggleButton value="Option 3">Option 3</ToggleButton>
+                <ToggleButton value="BUILDING">BUILDING</ToggleButton>
+                <ToggleButton value="CONTENTS">CONTENTS</ToggleButton>
+                <ToggleButton value="COMBINED">COMBINED</ToggleButton>
+                <ToggleButton value="LANDLORD">LANDLORD</ToggleButton>
               </ToggleButtonGroup>
             </Grid>
 
