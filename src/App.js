@@ -16,8 +16,8 @@ import {
 function App() {
   const [sfData, setSfData] = useState(null);
   
-  // State for the new options section
-  const [selectedOption, setSelectedOption] = useState("Option 1");
+  // State initialized to null so there is no default selection
+  const [selectedOption, setSelectedOption] = useState(null);
 
   useEffect(() => {
     const handleMessage = (event) => {
@@ -188,24 +188,26 @@ function App() {
               </ToggleButtonGroup>
             </Grid>
 
-            {/* 2. Bottom item: Dynamic Iframe */}
-            <Grid item xs={12}>
-              <Box
-                sx={{
-                  border: "2px solid #9c27b0", // Purple border to distinguish this section
-                  borderRadius: 2,
-                  overflow: "hidden",
-                }}
-              >
-                <iframe
-                  src={`https://racv--cbqa--c.sandbox.vf.force.com/apex/ExternalKnowledgeArticleVF?title=${encodeURIComponent(selectedOption)}`}
-                  width="100%"
-                  height="400px"
-                  style={{ border: "none" }}
-                  title="Knowledge Article Iframe"
-                />
-              </Box>
-            </Grid>
+            {/* 2. Bottom item: Dynamic Iframe (Only loads when an option is selected) */}
+            {selectedOption && (
+              <Grid item xs={12}>
+                <Box
+                  sx={{
+                    border: "2px solid #9c27b0",
+                    borderRadius: 2,
+                    overflow: "hidden",
+                  }}
+                >
+                  <iframe
+                    src={`https://racv--cbqa--c.sandbox.vf.force.com/apex/ExternalKnowledgeArticleVF?title=${encodeURIComponent(selectedOption)}`}
+                    width="100%"
+                    height="400px"
+                    style={{ border: "none" }}
+                    title="Knowledge Article Iframe"
+                  />
+                </Box>
+              </Grid>
+            )}
           </Grid>
         </Paper>
 
