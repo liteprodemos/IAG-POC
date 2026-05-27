@@ -94,7 +94,7 @@ function App() {
                 }}
               >
                 <iframe
-                  src="https://racv--cbqa--c.sandbox.vf.force.com/apex/ExternalCustomerManagerVF"
+                  src="https://racv--iagiqa--c.sandbox.vf.force.com/apex/ExternalCustomerManagerVF"
                   width="100%"
                   height="500px"
                   style={{ border: "none" }}
@@ -117,7 +117,7 @@ function App() {
                   }}
                 >
                   <iframe
-                    src={`https://racv--cbqa--c.sandbox.vf.force.com/apex/ExternalCustomerPaymentVF?id=${sfData.Id}`}
+                    src={`https://racv--iagiqa--c.sandbox.vf.force.com/apex/ExternalCustomerPaymentVF?id=${sfData.Id}`}
                     width="100%"
                     height="550px"
                     style={{ border: "none" }}
@@ -158,59 +158,6 @@ function App() {
             )}
           </CardContent>
         </Card>
-
-        {/* New Knowledge Article Section */}
-        <Paper
-          elevation={4}
-          sx={{
-            padding: 3,
-            borderRadius: 3,
-            backgroundColor: "#ffffff",
-          }}
-        >
-          <Typography variant="h6" gutterBottom align="center">
-            Knowledge Articles
-          </Typography>
-
-          <Grid container spacing={3}>
-            {/* 1. Top item: Horizontal selections */}
-            <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
-              <ToggleButtonGroup
-                color="primary"
-                value={selectedOption}
-                exclusive
-                onChange={handleOptionChange}
-                aria-label="Knowledge Article Options"
-              >
-                <ToggleButton value="BUILDING">BUILDING</ToggleButton>
-                <ToggleButton value="CONTENTS">CONTENTS</ToggleButton>
-                <ToggleButton value="COMBINED">COMBINED</ToggleButton>
-                <ToggleButton value="LANDLORD">LANDLORD</ToggleButton>
-              </ToggleButtonGroup>
-            </Grid>
-
-            {/* 2. Bottom item: Dynamic Iframe (Only loads when an option is selected) */}
-            {selectedOption && (
-              <Grid item xs={12}>
-                <Box
-                  sx={{
-                    border: "2px solid #9c27b0",
-                    borderRadius: 2,
-                    overflow: "hidden",
-                  }}
-                >
-                  <iframe
-                    src={`https://racv--cbqa--c.sandbox.vf.force.com/apex/ExternalKnowledgeArticleVF?title=${encodeURIComponent(selectedOption)}`}
-                    width="100%"
-                    height="400px"
-                    style={{ border: "none" }}
-                    title="Knowledge Article Iframe"
-                  />
-                </Box>
-              </Grid>
-            )}
-          </Grid>
-        </Paper>
 
       </Container>
       
