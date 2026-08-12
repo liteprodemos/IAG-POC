@@ -139,16 +139,13 @@ function App() {
             {sfData ? (
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
-                  <Typography><strong>ID:</strong> {sfData.Id}</Typography>
+                  <Typography><strong>SalesforceId:</strong> {sfData.SalesforceId}</Typography>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <Typography><strong>Name:</strong> {sfData.Name}</Typography>
+                  <Typography><strong>Customer Number:</strong> {sfData.CustomerNumber}</Typography>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <Typography><strong>Email:</strong> {sfData.PersonEmail}</Typography>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Typography><strong>Mobile:</strong> {sfData.PersonMobilePhone}</Typography>
+                  <Typography><strong>PartyId:</strong> {sfData.PartyId}</Typography>
                 </Grid>
               </Grid>
             ) : (
