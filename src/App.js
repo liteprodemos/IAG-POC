@@ -103,8 +103,8 @@ function App() {
               </Box>
             </Grid>
 
-            {/* Bottom Section: Payment Iframe (Only shows if sfData is present) */}
-            {sfData.Id && (
+            {/* Bottom Section: Payment Iframe (Only shows if sfData and Id are present) */}
+            {sfData && sfData.Id && (
               <Grid item xs={12}>
                  <Typography variant="subtitle2" color="textSecondary" sx={{ mb: 1 }}>
                   Payment Setup for {sfData.Name}
