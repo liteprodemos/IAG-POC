@@ -104,7 +104,7 @@ function App() {
             </Grid>
 
             {/* Bottom Section: Payment Iframe (Only shows if sfData is present) */}
-            {sfData && (
+            {sfData.Id && (
               <Grid item xs={12}>
                  <Typography variant="subtitle2" color="textSecondary" sx={{ mb: 1 }}>
                   Payment Setup for {sfData.Name}
@@ -139,13 +139,13 @@ function App() {
             {sfData ? (
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
-                  <Typography><strong>SalesforceId:</strong> {sfData.SalesforceId}</Typography>
+                  <Typography><strong>Message Type:</strong> {sfData.gwMessageType}</Typography>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <Typography><strong>Customer Number:</strong> {sfData.CustomerNumber}</Typography>
+                  <Typography><strong>Message Id:</strong> {sfData.gwMessageId}</Typography>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <Typography><strong>PartyId:</strong> {sfData.PartyId}</Typography>
+                  <Typography><strong>PartyId:</strong> {sfData.gwPayload?.partyId}</Typography>
                 </Grid>
               </Grid>
             ) : (
