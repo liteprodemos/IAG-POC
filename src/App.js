@@ -23,25 +23,31 @@ function App() {
     const handleMessage = (event) => {
       if (!event.origin.includes("sandbox.vf.force.com")) return;
 
-      console.log("Raw data received:", event.data);
+      console.log("Data received:", event.data);
 
-      let parsedData;
+      const data = event.data;
 
-      try {
-        parsedData =
-          typeof event.data === "string"
-            ? JSON.parse(event.data)
-            : event.data;
-
-        console.log("Parsed data:", parsedData);
-        setSfData(parsedData);
-      } catch (error) {
-        console.error("Error parsing message data:", error);
+      if (
+        typeof data !== "object" ||
+        data === null ||
+        typeof data.gwMessageType === "undefined"
+      ) {
+        console.warn("Invalid message received:", data);
+        return;
       }
+
+      console.log("Message Type:", data.gwMessageType);
+      console.log("Message ID:", data.gwMessageId);
+      console.log("Payload:", data.gwPayload);
+
+      setSfData(data);
     };
 
     window.addEventListener("message", handleMessage);
-    return () => window.removeEventListener("message", handleMessage);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+    };
   }, []);
 
   // Handler for the horizontal options
