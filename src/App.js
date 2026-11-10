@@ -99,25 +99,18 @@ function App() {
                   overflow: "hidden",
                 }}
               >
-                {/* <iframe
+                <iframe
                   src="https://racv--iagiqa--c.sandbox.vf.force.com/apex/ExternalCustomerManagerVF"
                   width="100%"
                   height="500px"
                   style={{ border: "none" }}
                   title="Search Iframe"
-                /> */}
-                <iframe
-                    src={`https://racv--iagiqa.sandbox.lightning.force.com/lightning/n/PaymentSetup?c__recordId=0019p00001LRDPfAAP`}
-                    width="100%"
-                    height="550px"
-                    style={{ border: "none" }}
-                    title="Payment Iframe"
-                  />
+                />
               </Box>
             </Grid>
 
             {/* Bottom Section: Payment Iframe (Only shows if sfData and Id are present) */}
-            {/* {sfData && sfData.Id && (
+            {sfData && sfData.Id && (
               <Grid item xs={12}>
                  <Typography variant="subtitle2" color="textSecondary" sx={{ mb: 1 }}>
                   Payment Setup for {sfData.Name}
@@ -138,7 +131,7 @@ function App() {
                   />
                 </Box>
               </Grid>
-            )} */}
+            )}
           </Grid>
         </Paper>
 
